@@ -1,0 +1,64 @@
+Действия ниже для пользователя admin/admin (base64('admin:admin') = 'YWRtaW46YWRtaW4=').
+
+
+
+Получение содержимого корневой директории: 
+
+GET /dir/ HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
+
+
+
+Создание новой директории внутри корневой:
+
+POST /dir/temp HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Length: 0
+
+
+
+Создание нового файла внутри созданной выше директории:
+
+POST /file/temp/test.txt HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Length: 24
+
+Testing file creation...
+
+
+
+Проверка содержимого директории:
+
+GET /dir/temp HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
+
+
+
+Изменение содержимого файла:
+
+PUT /file/temp/test.txt HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Length: 18
+
+NEW file contents!
+
+
+
+Проверка содержимого файла:
+
+GET /file/temp/test.txt HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
+
+
+
+Удаление файла:
+
+DELETE /file/temp/test.txt HTTP/1.1
+Host: simple-filehosting.appspot.com
+Authorization: Basic YWRtaW46YWRtaW4=
